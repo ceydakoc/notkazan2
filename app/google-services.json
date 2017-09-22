@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "840940843425",
+    "firebase_url": "https://denemeprojesi-38343.firebaseio.com",
+    "project_id": "denemeprojesi-38343",
+    "storage_bucket": "denemeprojesi-38343.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:840940843425:android:9bf088ecad449858",
+        "android_client_info": {
+          "package_name": "com.example.asus.turkcell"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "840940843425-1nk0al2amsl8cq4oqei23rs8surighfh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAqI9aG0NoTM9QWFWoWX7P10i-WsFFoOOM"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
