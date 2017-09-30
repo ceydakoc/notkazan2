@@ -30,8 +30,11 @@ public class Storage extends AppCompatActivity {
 
     private Button selectImage;
     private ImageView image;
-    private EditText imageName;
-    private EditText imageDescription;
+    private EditText txtUniversity;
+    private EditText txtDepartment;
+    private EditText txtLecture;
+    private EditText txtSubject;
+    private EditText txtTerm;
     private Button submitBtn;
     private static final int GALLERY_REQUEST = 1;
     private Uri imageUri = null;
@@ -64,8 +67,12 @@ public class Storage extends AppCompatActivity {
 
         selectImage = (Button) findViewById(R.id.btn_select_image);
         image = (ImageView) findViewById(R.id.img_selected);
-        imageName = (EditText) findViewById(R.id.txtImageName);
-        imageDescription = (EditText) findViewById(R.id.txtDescription);
+        txtUniversity = (EditText) findViewById(R.id.txt_uni);
+        txtDepartment = (EditText) findViewById(R.id.txt_department);
+        txtLecture = (EditText) findViewById(R.id.txt_lecture);
+        txtSubject = (EditText) findViewById(R.id.txt_subject);
+        txtTerm = (EditText) findViewById(R.id.txt_term);
+
         submitBtn = (Button) findViewById(R.id.btn_submit);
 
         progress = new ProgressDialog(this);
@@ -94,10 +101,14 @@ public class Storage extends AppCompatActivity {
         progress.setMessage("Paylaşılıyor...");
         progress.show();
 
-        final String name_value = imageName.getText().toString().trim();
-        final String desc_value = imageDescription.getText().toString().trim();
+        final String university = txtUniversity.getText().toString().trim();
+        final String department = txtDepartment.getText().toString().trim();
+        final String lecture = txtLecture.getText().toString().trim();
+        final String subject = txtSubject.getText().toString().trim();
+        final String term = txtTerm.getText().toString().trim();
 
-        if(!TextUtils.isEmpty(name_value) && !TextUtils.isEmpty(desc_value) && imageUri != null) {
+
+        if(!TextUtils.isEmpty(university) && !TextUtils.isEmpty(department) && !TextUtils.isEmpty(lecture) && !TextUtils.isEmpty(subject) && !TextUtils.isEmpty(term) && imageUri != null) {
 
             StorageReference filepath = storage.child("Images").child(imageUri.getLastPathSegment());
 
@@ -112,8 +123,11 @@ public class Storage extends AppCompatActivity {
                         public void onDataChange(DataSnapshot dataSnapshot) {
 
 
-                            databaseUserImages.child(newPost.getKey()).child("name").setValue(name_value);
-                            databaseUserImages.child(newPost.getKey()).child("description").setValue(desc_value);
+                            databaseUserImages.child(newPost.getKey()).child("university").setValue(university);
+                            databaseUserImages.child(newPost.getKey()).child("department").setValue(department);
+                            databaseUserImages.child(newPost.getKey()).child("lecture").setValue(lecture);
+                            databaseUserImages.child(newPost.getKey()).child("subject").setValue(subject);
+                            databaseUserImages.child(newPost.getKey()).child("term").setValue(term);
                             databaseUserImages.child(newPost.getKey()).child("image").setValue(downloadUrl.toString());
                             databaseUserImages.child(newPost.getKey()).child("username").setValue(dataSnapshot.child("name").getValue()).addOnCompleteListener(new OnCompleteListener<Void>(){
                                 @Override
@@ -126,8 +140,12 @@ public class Storage extends AppCompatActivity {
                             });
 
 
-                            newPost.child("name").setValue(name_value);
-                            newPost.child("description").setValue(desc_value);
+                            newPost.child("university").setValue(university);
+                            newPost.child("department").setValue(department);
+                            newPost.child("lecture").setValue(lecture);
+                            newPost.child("subject").setValue(subject);
+                            newPost.child("term").setValue(term);
+
                             newPost.child("image").setValue(downloadUrl.toString());
                             newPost.child("uid").setValue(currentUser.getUid());
                             newPost.child("username").setValue(dataSnapshot.child("name").getValue()).addOnCompleteListener(new OnCompleteListener<Void>(){

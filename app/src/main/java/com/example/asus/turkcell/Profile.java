@@ -132,10 +132,27 @@ public class Profile extends Fragment {
         ) {
             @Override
             protected void populateViewHolder(Profile.PostViewHolder viewHolder, Post model, int position) {
-                viewHolder.setName(model.getName());
-                viewHolder.setDesc(model.getDescription());
+                final String key = getRef(position).getKey();
+
+                viewHolder.setUniversity(model.getUniversity());
+                viewHolder.setDepartment(model.getDepartment());
+                viewHolder.setLecture(model.getLecture());
+                viewHolder.setSubject(model.getSubject());
+                viewHolder.setTerm(model.getTerm());
                 viewHolder.setUserName(model.getUsername());
                 viewHolder.setImage(getActivity().getApplicationContext(), model.getImage());
+
+                viewHolder.view.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        Intent i = new Intent(getActivity(), ShowPost.class);
+                        i.putExtra("key", key);
+                        startActivity(i);
+
+                        // Toast.makeText(getActivity(), key, Toast.LENGTH_LONG).show();
+                    }
+                });
 
             }
         };
@@ -154,22 +171,36 @@ public class Profile extends Fragment {
             view = itemView;
         }
 
-        public void setName(String name){
+        public void setUniversity(String university){
 
-            TextView post_name = (TextView) view.findViewById(R.id.post_name);
-            post_name.setText(name);
+            TextView post_university = (TextView) view.findViewById(R.id.txtCardUni);
+            post_university.setText(university);
 
         }
 
+        public void setDepartment(String department){
+            TextView post_department = (TextView) view.findViewById(R.id.txtCardDepartment);
+            post_department.setText(department);
+        }
+
+        public void setLecture(String lecture){
+            TextView post_lecture = (TextView) view.findViewById(R.id.txtCardLecture);
+            post_lecture.setText(lecture);
+        }
+
+        public void setSubject(String subject){
+            TextView post_subject = (TextView) view.findViewById(R.id.txtCardSubject);
+            post_subject.setText(subject);
+        }
+
+        public void setTerm(String term){
+            TextView post_term = (TextView) view.findViewById(R.id.txtCardTerm);
+            post_term.setText(term);
+        }
         public void setUserName(String name)
         {
             TextView usernameText = (TextView) view.findViewById(R.id.user_name);
             usernameText.setText(name);
-        }
-
-        public void setDesc(String desc){
-            TextView post_desc = (TextView) view.findViewById(R.id.post_description);
-            post_desc.setText(desc);
         }
 
         public void setImage(Context ctx, String image){

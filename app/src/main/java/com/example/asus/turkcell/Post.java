@@ -16,8 +16,11 @@ import com.google.firebase.database.ValueEventListener;
 
 public class Post {
 
-    private String name;
-    private String description;
+    private String university;
+    private String department;
+    private String lecture;
+    private String subject;
+    private String term;
     private String image;
     private String username;
 
@@ -27,14 +30,58 @@ public class Post {
     }
 
 
-    public Post(String name, String description, String image, String username) {
+    public Post(String university, String department, String lecture, String subject, String term, String image, String username) {
 
-        this.name = name;
-        this.description = description;
+        this.university = university;
+        this.department = department;
+        this.lecture = lecture;
+        this.subject = subject;
+        this.term = term;
+
         this.image = image;
         this.username = username;
 
 
+    }
+
+    public String getUniversity() {
+        return university;
+    }
+
+    public void setUniversity(String university) {
+        this.university = university;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public String getLecture() {
+        return lecture;
+    }
+
+    public void setLecture(String lecture) {
+        this.lecture = lecture;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
+    }
+
+    public String getTerm() {
+        return term;
+    }
+
+    public void setTerm(String term) {
+        this.term = term;
     }
 
     public String getUsername() {
@@ -43,23 +90,6 @@ public class Post {
 
     public void setUsername(String username) {
         this.username = username;
-    }
-
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 
     public String getImage() {

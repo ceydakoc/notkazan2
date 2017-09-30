@@ -17,23 +17,46 @@
 
     <ImageView
         android:id="@+id/img_selected"
-        android:layout_width="300dp"
-        android:layout_height="300dp"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
         android:layout_gravity="center" />
 
     <EditText
-        android:id="@+id/txtImageName"
+        android:id="@+id/txt_uni"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Başlık" />
+        android:hint="Üniversite"
+        android:textSize="17sp" />
 
     <EditText
-        android:id="@+id/txtDescription"
+        android:id="@+id/txt_department"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Bölüm"
+        android:textSize="17sp" />
+
+    <EditText
+        android:id="@+id/txt_lecture"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ders"
+        android:textSize="17sp" />
+
+    <EditText
+        android:id="@+id/txt_subject"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Konu"
+        android:textSize="17sp" />
+
+    <EditText
+        android:id="@+id/txt_term"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:hint="Açıklama"
-        android:inputType="textPersonName" />
+        android:hint="Dönem"
+        android:inputType="textPersonName"
+        android:textSize="17sp" />
 
     <Button
         android:id="@+id/btn_submit"
