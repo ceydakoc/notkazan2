@@ -33,7 +33,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".Storage" />
         <activity android:name=".FriendProfile" />
-        <activity android:name=".ShowPost"></activity>
+        <activity android:name=".ShowPost" />
     </application>
 
 </manifest>

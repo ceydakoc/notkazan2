@@ -1,6 +1,7 @@
 package com.example.asus.turkcell;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -30,15 +31,17 @@ public class ShowPost extends AppCompatActivity {
     private FirebaseAuth auth;
 
     private DatabaseReference ref ;
-
-    ImageView imageView;
+    ZoomableImageView imageView;
+    Bitmap bitmap;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_show_post);
         gotoprof= (Button)findViewById(R.id.gotoprof);
-        imageView = (ImageView) findViewById(R.id.img_post);
+        imageView = (ZoomableImageView) findViewById(R.id.img_post);
+        imageView.setImageBitmap(bitmap);
+
         key = getIntent().getExtras().getString("key");
         final TextView usrnameText= (TextView) findViewById(R.id.user_name);
 
